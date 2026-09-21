@@ -37,7 +37,7 @@ const ProfileModal = ({ user, children }) => {
             display="flex"
             justifyContent="center"
           >
-            {user.name}
+            {user?.name || "User Not Found"}
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody
@@ -49,14 +49,17 @@ const ProfileModal = ({ user, children }) => {
             <Image
               borderRadius="full"
               boxSize="150px"
-              src={user.pic}
-              alt={user.name}
+              src={
+                user?.pic ||
+                "https://icon-library.com/images/anonymous-user-icon/anonymous-user-icon-2.jpg"
+              }
+              alt={user?.name || "User"}
             />
             <Text
               fontSize={{ base: "28px", md: "30px" }}
               fontFamily="Work sans"
             >
-              Email: {user.email}
+              Email: {user?.email || "N/A"}
             </Text>
           </ModalBody>
           <ModalFooter>
