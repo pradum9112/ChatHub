@@ -1,5 +1,5 @@
 {
-  "name": "chat-app",
+  "name": "Chat-Hub",
   "version": "1.0.0",
   "description": "Full Stack ChatHub MERN application",
   "main": "backend/server.js",
@@ -10,7 +10,7 @@
   },
   "keywords": [
     "mern",
-    "chat-app"
+    "Chat-Hub"
   ],
   "author": "pradum",
   "license": "ISC",

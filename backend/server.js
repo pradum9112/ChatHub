@@ -7,6 +7,7 @@ const chatRoutes = require("./routes/chatRoutes");
 const messageRoutes = require("./routes/messageRoutes");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 const path = require("path");
+const colors = require("colors");
 
 
 // dotenv.config();
@@ -37,11 +38,27 @@ if (process.env.NODE_ENV === "production") {
 app.use(notFound);
 app.use(errorHandler);
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 const server = app.listen(
   PORT,
-  console.log(`Server running on PORT ${PORT}...`)
+  () => {
+    console.log(
+      `==================================================`.cyan.bold
+    );
+    console.log(
+      `🚀 ChatHub Server Successfully Running!`.yellow.bold.underline
+    );
+    console.log(
+      `📡 Port Location : http://localhost:${PORT}`.green
+    );
+    console.log(
+      `🔥 Environment   : ${process.env.NODE_ENV || "development"}`.magenta
+    );
+    console.log(
+      `==================================================`.cyan.bold
+    );
+  }
 );
 
 const io = require("socket.io")(server, {
